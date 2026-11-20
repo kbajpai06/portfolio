@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0e14;
+  color: #e8edf2;
+}
+
+::selection {
+  background: #4fe3c1;
+  color: #0a0e14;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0e14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2630;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4fe3c1;
+}
+
+.text-glow {
+  text-shadow: 0 0 24px rgba(79, 227, 193, 0.35);
+}
+
+.rail-line {
+  background: linear-gradient(to bottom, transparent, #1e2630 10%, #1e2630 90%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #4fe3c1;
+  outline-offset: 3px;
+}
+
+
+.glass {
+  background: rgba(16, 21, 29, 0.55);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(79, 227, 193, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  transition: border-color 0.2s ease;
+}
+.glass:hover {
+  border-color: rgba(79, 227, 193, 0.3);
+}
+.glass-strong {
+  background: rgba(10, 14, 20, 0.7);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.09) translate(-1%, -1%); }
+}
+
+@keyframes drift-a {
+  0% { transform: translate(-8%, -4%) scale(1); }
+  50% { transform: translate(6%, 3%) scale(1.15); }
+  100% { transform: translate(-8%, -4%) scale(1); }
+}
+
+@keyframes drift-b {
+  0% { transform: translate(6%, 5%) scale(1.1); }
+  50% { transform: translate(-5%, -6%) scale(1); }
+  100% { transform: translate(6%, 5%) scale(1.1); }
+}
+
+.animate-kenburns {
+  animation: kenburns 24s ease-in-out infinite alternate;
+}
+.animate-drift-a {
+  animation: drift-a 22s ease-in-out infinite;
+}
+.animate-drift-b {
+  animation: drift-b 28s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-kenburns,
+  .animate-drift-a,
+  .animate-drift-b {
+    animation: none !important;
+  }
+}
